@@ -16,6 +16,18 @@
 		3D6F7EFB281082C6009108A0 /* BookFinderAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F7EFA281082C6009108A0 /* BookFinderAppTests.swift */; };
 		3D6F7F05281082C6009108A0 /* BookFinderAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F7F04281082C6009108A0 /* BookFinderAppUITests.swift */; };
 		3D6F7F07281082C6009108A0 /* BookFinderAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F7F06281082C6009108A0 /* BookFinderAppUITestsLaunchTests.swift */; };
+		3D6F7F17281085E0009108A0 /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F7F16281085E0009108A0 /* BookListViewController.swift */; };
+		3D6F7F1A2810865C009108A0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3D6F7F192810865C009108A0 /* SnapKit */; };
+		3D6F7F1D281088DC009108A0 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 3D6F7F1C281088DC009108A0 /* RxBlocking */; };
+		3D6F7F1F281088DC009108A0 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 3D6F7F1E281088DC009108A0 /* RxCocoa */; };
+		3D6F7F21281088DC009108A0 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 3D6F7F20281088DC009108A0 /* RxRelay */; };
+		3D6F7F23281088DC009108A0 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3D6F7F22281088DC009108A0 /* RxSwift */; };
+		3D6F7F25281088DC009108A0 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 3D6F7F24281088DC009108A0 /* RxTest */; };
+		3D6F7F2728108920009108A0 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F7F2628108920009108A0 /* SearchBar.swift */; };
+		3D6F7F292810989B009108A0 /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F7F282810989B009108A0 /* BookListView.swift */; };
+		3D6F7F2C28109901009108A0 /* BookListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F7F2B28109901009108A0 /* BookListViewCell.swift */; };
+		3D6F7F2E2811359B009108A0 /* GoogleBooksResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F7F2D2811359B009108A0 /* GoogleBooksResponseModel.swift */; };
+		3D6F7F30281138CA009108A0 /* CellDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F7F2F281138CA009108A0 /* CellDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +61,12 @@
 		3D6F7F00281082C6009108A0 /* BookFinderAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookFinderAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D6F7F04281082C6009108A0 /* BookFinderAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookFinderAppUITests.swift; sourceTree = "<group>"; };
 		3D6F7F06281082C6009108A0 /* BookFinderAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookFinderAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3D6F7F16281085E0009108A0 /* BookListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewController.swift; sourceTree = "<group>"; };
+		3D6F7F2628108920009108A0 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		3D6F7F282810989B009108A0 /* BookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
+		3D6F7F2B28109901009108A0 /* BookListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewCell.swift; sourceTree = "<group>"; };
+		3D6F7F2D2811359B009108A0 /* GoogleBooksResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleBooksResponseModel.swift; sourceTree = "<group>"; };
+		3D6F7F2F281138CA009108A0 /* CellDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +74,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D6F7F21281088DC009108A0 /* RxRelay in Frameworks */,
+				3D6F7F1F281088DC009108A0 /* RxCocoa in Frameworks */,
+				3D6F7F23281088DC009108A0 /* RxSwift in Frameworks */,
+				3D6F7F1A2810865C009108A0 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +85,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D6F7F25281088DC009108A0 /* RxTest in Frameworks */,
+				3D6F7F1D281088DC009108A0 /* RxBlocking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +123,9 @@
 		3D6F7EE2281082C4009108A0 /* BookFinderApp */ = {
 			isa = PBXGroup;
 			children = (
+				3D6F7F142810856D009108A0 /* Model */,
+				3D6F7F1328108565009108A0 /* View */,
+				3D6F7F1528108572009108A0 /* ViewModel */,
 				3D6F7EE3281082C4009108A0 /* AppDelegate.swift */,
 				3D6F7EE5281082C4009108A0 /* SceneDelegate.swift */,
 				3D6F7EE7281082C4009108A0 /* ViewController.swift */,
@@ -106,6 +133,7 @@
 				3D6F7EEC281082C6009108A0 /* Assets.xcassets */,
 				3D6F7EEE281082C6009108A0 /* LaunchScreen.storyboard */,
 				3D6F7EF1281082C6009108A0 /* Info.plist */,
+				3D6F7F16281085E0009108A0 /* BookListViewController.swift */,
 			);
 			path = BookFinderApp;
 			sourceTree = "<group>";
@@ -127,6 +155,40 @@
 			path = BookFinderAppUITests;
 			sourceTree = "<group>";
 		};
+		3D6F7F1328108565009108A0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3D6F7F2A281098F6009108A0 /* Cell */,
+				3D6F7F2628108920009108A0 /* SearchBar.swift */,
+				3D6F7F282810989B009108A0 /* BookListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3D6F7F142810856D009108A0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3D6F7F2D2811359B009108A0 /* GoogleBooksResponseModel.swift */,
+				3D6F7F2F281138CA009108A0 /* CellDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3D6F7F1528108572009108A0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3D6F7F2A281098F6009108A0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3D6F7F2B28109901009108A0 /* BookListViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +205,12 @@
 			dependencies = (
 			);
 			name = BookFinderApp;
+			packageProductDependencies = (
+				3D6F7F192810865C009108A0 /* SnapKit */,
+				3D6F7F1E281088DC009108A0 /* RxCocoa */,
+				3D6F7F20281088DC009108A0 /* RxRelay */,
+				3D6F7F22281088DC009108A0 /* RxSwift */,
+			);
 			productName = BookFinderApp;
 			productReference = 3D6F7EE0281082C4009108A0 /* BookFinderApp.app */;
 			productType = "com.apple.product-type.application";
@@ -161,6 +229,10 @@
 				3D6F7EF8281082C6009108A0 /* PBXTargetDependency */,
 			);
 			name = BookFinderAppTests;
+			packageProductDependencies = (
+				3D6F7F1C281088DC009108A0 /* RxBlocking */,
+				3D6F7F24281088DC009108A0 /* RxTest */,
+			);
 			productName = BookFinderAppTests;
 			productReference = 3D6F7EF6281082C6009108A0 /* BookFinderAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -215,6 +287,10 @@
 				Base,
 			);
 			mainGroup = 3D6F7ED7281082C4009108A0;
+			packageReferences = (
+				3D6F7F182810865C009108A0 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				3D6F7F1B281088DC009108A0 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = 3D6F7EE1281082C4009108A0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,8 +335,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D6F7EE8281082C4009108A0 /* ViewController.swift in Sources */,
+				3D6F7F292810989B009108A0 /* BookListView.swift in Sources */,
+				3D6F7F17281085E0009108A0 /* BookListViewController.swift in Sources */,
+				3D6F7F2728108920009108A0 /* SearchBar.swift in Sources */,
+				3D6F7F2E2811359B009108A0 /* GoogleBooksResponseModel.swift in Sources */,
+				3D6F7F30281138CA009108A0 /* CellDataModel.swift in Sources */,
 				3D6F7EE4281082C4009108A0 /* AppDelegate.swift in Sources */,
 				3D6F7EE6281082C4009108A0 /* SceneDelegate.swift in Sources */,
+				3D6F7F2C28109901009108A0 /* BookListViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,7 +524,6 @@
 				INFOPLIST_FILE = BookFinderApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -471,7 +552,6 @@
 				INFOPLIST_FILE = BookFinderApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -604,6 +684,58 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3D6F7F182810865C009108A0 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		3D6F7F1B281088DC009108A0 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3D6F7F192810865C009108A0 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3D6F7F182810865C009108A0 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		3D6F7F1C281088DC009108A0 /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3D6F7F1B281088DC009108A0 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+		3D6F7F1E281088DC009108A0 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3D6F7F1B281088DC009108A0 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		3D6F7F20281088DC009108A0 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3D6F7F1B281088DC009108A0 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		3D6F7F22281088DC009108A0 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3D6F7F1B281088DC009108A0 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		3D6F7F24281088DC009108A0 /* RxTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3D6F7F1B281088DC009108A0 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3D6F7ED8281082C4009108A0 /* Project object */;
 }
