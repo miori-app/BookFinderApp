@@ -6,6 +6,8 @@
 - SPM(Swift Package Manager)
   ### 사용 라이브러리
     - Snapkit(5.6.0)
+    - RxSwift (6.5.0)
+    - Kingfisher (7.0.0)
 
 ---
 ## 📝 문서화
