@@ -12,24 +12,15 @@ import RxCocoa
 
 class BookListViewController : UIViewController {
     
+    let disposeBag = DisposeBag()
     let searchController = SearchBar(searchResultsController: nil)
     let bookListView = BookListView()
+    let searchBarViewModel = SearchBarViewModel()
     
-
-    let sampleData : [CellDataModel] = [
-        CellDataModel(thumbnailURL: nil, title: "ddd", author: "dd", datetime: "dd-dd-dd"),
-        CellDataModel(thumbnailURL: nil, title: "dddddddddddddddddddddddddddddddddddddddddddddd", author: "dd", datetime: "dd-dd-dd"),
-        CellDataModel(thumbnailURL: nil, title: "ddd", author: "dd", datetime: "dd-dd-dd")]
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setAttribute()
         setLayout()
-        DispatchQueue.main.async {
-            self.setTableView()
-            self.bookListView.reloadData()
-        }
     }
 }
 
@@ -40,10 +31,7 @@ extension BookListViewController {
         view.backgroundColor = .white
     }
     
-    private func setTableView() {
-        bookListView.delegate = self
-        bookListView.dataSource = self
-    }
+
     private func setLayout(){
         self.view.addSubview(bookListView)
         
@@ -52,24 +40,21 @@ extension BookListViewController {
             $0.leading.trailing.bottom.equalToSuperview()
         }
     }
-}
+    
+    func bind(_ viewModel : MainViewModel) {
+        
+        bookListView.rx.itemSelected
+            .bind { [weak self] indexPath in
+                self?.bookListView.deselectRow(at: indexPath, animated: false)
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.detailListCellData
+            .drive(bookListView.rx.items(cellIdentifier: BookListViewCell.registerID, cellType: BookListViewCell.self)) { [weak self] row, element, cell in
+                cell.setData(element.volumeInfo)
+            }
+            .disposed(by: disposeBag)
 
-
-extension BookListViewController : UITableViewDelegate, UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sampleData.count
+        searchController.bind(viewModel.searchBarViewModel)
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = UITableViewCell()
-        guard let detailCell = tableView.dequeueReusableCell(withIdentifier: BookListViewCell.registerID, for: indexPath) as? BookListViewCell else {
-            return UITableViewCell()
-        }
-        detailCell.setData(sampleData[indexPath.row])
-        cell = detailCell
-        return cell
-    }
-    
-    
 }
