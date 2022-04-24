@@ -26,7 +26,7 @@ class FindBookNetwork {
         }
         
         let request = NSMutableURLRequest(url: url)
-        request.httpMethod = "\(HttpMethod.get.rawValue)"
+        request.httpMethod = HttpMethods.get
         
         return session.rx.data(request: request as URLRequest)
             .map { data in
