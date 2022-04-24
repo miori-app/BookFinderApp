@@ -8,6 +8,7 @@
 import Foundation
 import SnapKit
 import UIKit
+import Kingfisher
 
 class BookListViewCell : UITableViewCell {
     
@@ -20,17 +21,17 @@ class BookListViewCell : UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setAttribue()
+        setAttribute()
         setLayout()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setAttribue() {
+    private func setAttribute() {
         thumbnailImageView.contentMode = .scaleAspectFit
-        thumbnailImageView.backgroundColor = .gray
+        thumbnailImageView.backgroundColor = .white
         titleLabel.font = .systemFont(ofSize: 18, weight: .bold)
         authorLabel.font = .systemFont(ofSize: 14)
         [titleLabel,authorLabel].forEach {$0.numberOfLines = 0 }
@@ -64,9 +65,37 @@ class BookListViewCell : UITableViewCell {
         
     }
     
-    func setData(_ data : CellDataModel) {
+    func checkImgLink(_ data : BooksInfo) -> URL {
+        
+        guard let imgLink = data.imageLinks?.smallThumbnail else {
+            thumbnailImageView.layer.borderWidth = 0.5
+            thumbnailImageView.layer.borderColor = UIColor.systemGray3.cgColor
+            return URL(string: DefaultImgWantedLogo.wantedLogo)!
+         }
+        return URL(string: imgLink)!
+    }
+    
+    func checkAuthors(_ data : BooksInfo) -> String {
+        
+        guard let authorArr = data.authors else {
+            return "저자가 등록되지 않았어요"
+        }
+        let authorData : String = authorArr.count > 2 ? "\(authorArr[0]) 외 \(authorArr.count - 1) 명" : "\(authorArr[0])"
+        
+        return authorData
+    }
+    
+    func setData(_ data : BooksInfo) {
+        
+        
+        let imgURL = checkImgLink(data)
+        
+        thumbnailImageView.kf.setImage(with: imgURL)
         titleLabel.text = data.title
-        authorLabel.text = data.author
-        publishDateLabel.text = data.datetime
+        authorLabel.text = checkAuthors(data)
+        publishDateLabel.text = data.publishedDate ?? "출판년도가 등록되지 않았어요"
+        
+        
     }
 }
+
