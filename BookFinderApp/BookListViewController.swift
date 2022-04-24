@@ -14,8 +14,8 @@ class BookListViewController : UIViewController {
     
     let disposeBag = DisposeBag()
     let searchController = SearchBar(searchResultsController: nil)
-    let bookListView = BookListView()
-    let searchBarViewModel = SearchBarViewModel()
+    let bookListView = BookTableView()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class BookListViewController : UIViewController {
 
 extension BookListViewController {
     private func setAttribute(){
-        title = "책을 Wanted"
+        title = LabelText.naviTitle
         self.navigationItem.searchController = searchController
         view.backgroundColor = .white
     }
@@ -34,7 +34,7 @@ extension BookListViewController {
 
     private func setLayout(){
         self.view.addSubview(bookListView)
-        
+
         bookListView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.bottom.equalToSuperview()
@@ -43,22 +43,12 @@ extension BookListViewController {
     
     func bind(_ viewModel : MainViewModel) {
         
-        bookListView.rx.itemSelected
-            .bind { [weak self] indexPath in
-                self?.bookListView.deselectRow(at: indexPath, animated: false)
-            }
-            .disposed(by: disposeBag)
-        
-        viewModel.detailListCellData
-            .drive(bookListView.rx.items(cellIdentifier: BookListViewCell.registerID, cellType: BookListViewCell.self)) { [weak self] row, element, cell in
-                cell.setData(element.volumeInfo)
-            }
-            .disposed(by: disposeBag)
-
+        bookListView.bind(viewModel.bookTableViewModel)
         searchController.bind(viewModel.searchBarViewModel)
         
         viewModel.totalResultCountValue
             .drive(bookListView.headerView.totalCountLabel.rx.text)
             .disposed(by: disposeBag)
+        
     }
 }
