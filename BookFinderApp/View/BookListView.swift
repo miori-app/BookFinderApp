@@ -7,8 +7,13 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class BookListView : UITableView {
+    
+    let disposeBag = DisposeBag()
+    let headerView = BookTableViewHeaderView(frame: CGRect(origin: .zero, size: CGSize(width: ScreenConstant.deviceWidth, height: 30)))
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: .plain)
@@ -27,6 +32,7 @@ class BookListView : UITableView {
         self.backgroundColor = .white
         self.register(BookListViewCell.self, forCellReuseIdentifier: BookListViewCell.registerID)
         self.separatorStyle = .singleLine
+        self.tableHeaderView = headerView
     }
-    
+
 }
