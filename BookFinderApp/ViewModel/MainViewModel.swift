@@ -15,6 +15,7 @@ struct MainViewModel {
     let detailListCellData : Driver<[BooksItems]>
     let networkModel = FindBookNetwork()
     let apiData = PublishSubject<[BooksItems]>()
+    let totalResultCountValue : Driver<String>
     
     
     init(_ networkModel : FindBookNetwork = FindBookNetwork()) {
@@ -35,6 +36,12 @@ struct MainViewModel {
                 }
                 return value
             }
+        
+        let totalResultCount = searchBookResultValue
+            .map { "📚 검색된 결과 수 : \($0.totalItems)" }
+
+        self.totalResultCountValue = totalResultCount
+            .asDriver(onErrorJustReturn: "📚 검색된 결과 수 : 0")
         
         let cellData = searchBookResultValue
             .map { $0.items }
