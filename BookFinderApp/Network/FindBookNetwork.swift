@@ -26,7 +26,7 @@ class FindBookNetwork {
         }
         
         let request = NSMutableURLRequest(url: url)
-        request.httpMethod = "GET"
+        request.httpMethod = "\(HttpMethod.get.rawValue)"
         
         return session.rx.data(request: request as URLRequest)
             .map { data in
@@ -40,7 +40,7 @@ class FindBookNetwork {
             }
             .catch { _ in
                 .just(.failure(.cannotParseResponse))
-            } 
+            }
             .asSingle()
     }
 }
