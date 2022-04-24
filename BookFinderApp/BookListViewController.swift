@@ -56,5 +56,9 @@ extension BookListViewController {
             .disposed(by: disposeBag)
 
         searchController.bind(viewModel.searchBarViewModel)
+        
+        viewModel.totalResultCountValue
+            .drive(bookListView.headerView.totalCountLabel.rx.text)
+            .disposed(by: disposeBag)
     }
 }
