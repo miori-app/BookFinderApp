@@ -31,7 +31,7 @@ class BookTableViewHeaderView : UITableViewHeaderFooterView {
     
     private func setAttribute() {
         totalCountLabel.font = .systemFont(ofSize: 10, weight: .medium)
-        totalCountLabel.text = "📚 검색된 결과 수 :"
+        totalCountLabel.text = LabelText.headerTotalBooksLabel
         bottomBorder.backgroundColor = .systemGray3
     }
     
