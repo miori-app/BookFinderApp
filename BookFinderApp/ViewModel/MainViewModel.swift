@@ -11,47 +11,35 @@ import RxSwift
 
 struct MainViewModel {
     let disposeBag = DisposeBag()
+    
     let searchBarViewModel = SearchBarViewModel()
-    let detailListCellData : Driver<[BooksItems]>
-    let networkModel = FindBookNetwork()
-    let apiData = PublishSubject<[BooksItems]>()
+    let bookTableViewModel = BookTableViewModel()
+    
     let totalResultCountValue : Driver<String>
     
-    
-    init(_ networkModel : FindBookNetwork = FindBookNetwork()) {
-        
-        func searchBook(_ query : String) -> Single<Result<GoogleBooksResponseModel,NetworkErrorModel>> {
-            return networkModel.searchNetwork(query: query)
-        }
+    init(_ model : MainModel = MainModel()) {
         
         let searchBookResult = searchBarViewModel.shouldLoadResult
-            .flatMapLatest(searchBook)
+            .flatMapLatest(model.searchBooks)
             .share()
         
-        let searchBookResultValue = searchBookResult
-            .compactMap { data -> GoogleBooksResponseModel? in
-                guard case let .success(value) = data
-                else {
-                    return nil
-                }
-                return value
-            }
+        let searchBookValue = searchBookResult
+            .compactMap(model.getBooksModelValue)
         
-        let totalResultCount = searchBookResultValue
-            .map { "📚 검색된 결과 수 : \($0.totalItems)" }
-
-        self.totalResultCountValue = totalResultCount
-            .asDriver(onErrorJustReturn: "📚 검색된 결과 수 : 0")
-        
-        let cellData = searchBookResultValue
+                
+        let cellData = searchBookValue
             .map { $0.items }
         
+        
         cellData
-            .bind(to: apiData)
-            .disposed(by: disposeBag)
+            .debug("cellData")
+            .bind(to: bookTableViewModel.apiData)
         
-        self.detailListCellData = apiData
-            .asDriver(onErrorJustReturn: [])
-        
+        let totalResultCount = searchBookValue
+            .map { "\(LabelText.headerTotalBooksLabel) \($0.totalItems)" }
+
+        self.totalResultCountValue = totalResultCount
+            .asDriver(onErrorJustReturn: "\(LabelText.headerTotalBooksLabel) 0")
     }
+
 }
