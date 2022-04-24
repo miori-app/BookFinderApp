@@ -49,6 +49,20 @@ class BookTableView : UITableView {
                 cell.setData(element.volumeInfo)
             }
             .disposed(by: disposeBag)
+        
+        self.rx.didScroll
+            .throttle(.seconds(3), latest: false, scheduler: MainScheduler.instance)
+            //.debug()
+            .subscribe { _ in
+            let offsetY  = self.contentOffset.y
+            let totalScrollViewHeight = self.contentSize.height
+            let nowScrollViewHeight = self.frame.size.height
+            
+            if offsetY > (totalScrollViewHeight - nowScrollViewHeight - (ScreenConstant.estimateCellSize * 2)) {
+                viewModel.fetchMoreDatas.onNext(())
+            }
+        }
+        .disposed(by: disposeBag)
     }
     
 }
