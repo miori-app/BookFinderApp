@@ -16,7 +16,18 @@ class BookTableViewModel {
     let detailListCellData : Driver<[BooksItems]>
     let apiData = PublishSubject<[BooksItems]>()
   
+    let fetchMoreDatas = PublishSubject<Void>()
+    
     init() {
         self.detailListCellData = apiData.asDriver(onErrorJustReturn: [] )
+        fetchMore()
+    }
+    
+    private func fetchMore() {
+        fetchMoreDatas.subscribe { [weak self] _ in
+            guard let self = self else { return }
+            print("load")
+        }
+        .disposed(by: disposeBag)
     }
 }
