@@ -20,7 +20,8 @@ struct APIModel {
         components.path = APIModel.path
         components.queryItems = [
             URLQueryItem(name: "q", value: "+intitle:\(query)"),
-            URLQueryItem(name: "projection", value: "lite")
+            URLQueryItem(name: "projection", value: "lite"),
+            URLQueryItem(name: "maxResults", value: "20")
         ]
         return components
     }
