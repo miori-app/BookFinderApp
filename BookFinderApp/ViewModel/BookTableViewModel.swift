@@ -24,7 +24,9 @@ class BookTableViewModel {
     }
     
     private func fetchMore() {
-        fetchMoreDatas.subscribe { [weak self] _ in
+        fetchMoreDatas
+            .skip(1)
+            .subscribe { [weak self] _ in
             guard let self = self else { return }
             print("load")
         }
