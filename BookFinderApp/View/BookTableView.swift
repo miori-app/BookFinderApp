@@ -14,6 +14,7 @@ class BookTableView : UITableView {
     
     let disposeBag = DisposeBag()
     let headerView = BookTableViewHeaderView(frame: CGRect(origin: .zero, size: CGSize(width: ScreenConstant.deviceWidth, height: 30)))
+    var lastPostion : CGFloat = 0.0
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: .plain)
@@ -44,7 +45,7 @@ class BookTableView : UITableView {
             .disposed(by: disposeBag)
         
         viewModel.detailListCellData
-            //.debug()
+        //.debug()
             .drive(self.rx.items(cellIdentifier: BookListViewCell.registerID, cellType: BookListViewCell.self)) { row, element, cell in
                 cell.setData(element.volumeInfo)
             }
@@ -52,17 +53,20 @@ class BookTableView : UITableView {
         
         self.rx.didScroll
             .throttle(.seconds(3), latest: false, scheduler: MainScheduler.instance)
-            //.debug()
+        //.debug()
             .subscribe { _ in
-            let offsetY  = self.contentOffset.y
-            let totalScrollViewHeight = self.contentSize.height
-            let nowScrollViewHeight = self.frame.size.height
-            
-            if offsetY > (totalScrollViewHeight - nowScrollViewHeight - (ScreenConstant.estimateCellSize * 2)) {
-                viewModel.fetchMoreDatas.onNext(())
+                let offsetY  = self.contentOffset.y
+                let currentPosition = offsetY
+                let totalScrollViewHeight = self.contentSize.height
+                let nowScrollViewHeight = self.frame.size.height
+                
+                // 바닥에 닿기 전 + 아래방향으로 스크롤일떄만
+                if (offsetY > (totalScrollViewHeight - nowScrollViewHeight - ScreenConstant.estimateCellSize * 2)) && self.lastPostion < offsetY {
+                    viewModel.fetchMoreDatas
+                        .onNext(())
+                }
+                self.lastPostion = offsetY
             }
-        }
-        .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
     }
-    
 }
