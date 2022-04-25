@@ -43,11 +43,17 @@ extension BookListViewController {
     
     func bind(_ viewModel : MainViewModel) {
         
-        bookListView.bind(viewModel.bookTableViewModel)
         searchController.bind(viewModel.searchBarViewModel)
+        
+        bookListView.bind(viewModel.bookTableViewModel)
         
         viewModel.totalResultCountValue
             .drive(bookListView.headerView.totalCountLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        //방안 1 #16 에러 해결 하기 위함 (잘작동 확인)
+        viewModel.cellData
+            .bind(to: viewModel.bookTableViewModel.apiData)
             .disposed(by: disposeBag)
         
     }

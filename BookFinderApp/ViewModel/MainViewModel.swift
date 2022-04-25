@@ -17,6 +17,9 @@ struct MainViewModel {
     
     let totalResultCountValue : Driver<String>
     
+    // #16 이슈 해결하기 위해 새로 추가
+    var cellData: Observable<[BooksItems]>
+    
     init(_ model : MainModel = MainModel()) {
         
         let searchBookResult = searchBarViewModel.shouldLoadResult
@@ -26,14 +29,15 @@ struct MainViewModel {
         let searchBookValue = searchBookResult
             .compactMap(model.getBooksModelValue)
         
-                
-        let cellData = searchBookValue
+         // # 16 이슈 해결 하기 위해 변경 (let cellData -> 외부에서 var cellData  접근할수 있게)
+         cellData = searchBookValue
             .map { $0.items }
         
-        
-        cellData
-            .debug("cellData")
-            .bind(to: bookTableViewModel.apiData)
+//        # 16 이슈 해결 하기 위해 변경 (삭제)
+//        cellData
+//            .debug()
+//            .bind(to: bookTableViewModel.apiData)
+//            .disposed(by: disposeBag)
         
         let totalResultCount = searchBookValue
             .map { "\(LabelText.headerTotalBooksLabel) \($0.totalItems)" }
