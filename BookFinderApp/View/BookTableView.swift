@@ -55,19 +55,18 @@ class BookTableView : UITableView {
         self.rx.didScroll
             .throttle(.seconds(3), latest: false, scheduler: MainScheduler.instance)
         //.debug()
-            .subscribe { _ in
+            .filter {
                 let offsetY  = self.contentOffset.y
-                let currentPosition = offsetY
                 let totalScrollViewHeight = self.contentSize.height
                 let nowScrollViewHeight = self.frame.size.height
-                
-                // 바닥에 닿기 전 + 아래방향으로 스크롤일떄만
-                if (offsetY > (totalScrollViewHeight - nowScrollViewHeight - ScreenConstant.estimateCellSize * 3)) && self.lastPostion < offsetY {
-                    viewModel.fetchMoreDatas
-                        .onNext(())
-                }
-                self.lastPostion = offsetY
+                return offsetY > (totalScrollViewHeight - nowScrollViewHeight - ScreenConstant.estimateCellSize * 3) && self.lastPostion < offsetY
             }
+            .withLatestFrom(viewModel.fetchStratIndex) { $1 }
+            .scan(0) { (pre,new) in
+                pre + MaxResults.maxResult
+            }
+            .subscribe {print("\($0)")} //ok
+            //.bind(to: viewModel.fetchStratIndex)
             .disposed(by: disposeBag)
     }
 }
