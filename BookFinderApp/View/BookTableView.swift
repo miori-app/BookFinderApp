@@ -39,8 +39,6 @@ class BookTableView : UITableView {
     
     func bind(_ viewModel : BookTableViewModel) {
         
-        headerView.bind(headerViewModel)
-        
         self.rx.itemSelected
             .bind { [weak self] indexPath in
                 self?.deselectRow(at: indexPath, animated: false)
