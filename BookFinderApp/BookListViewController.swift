@@ -47,6 +47,8 @@ extension BookListViewController {
         
         bookListView.bind(viewModel.bookTableViewModel)
         
+        bookListView.headerView.bind(viewModel.bookTableHeaderViewModel)
+        
         viewModel.totalResultCountValue
             .drive(bookListView.headerView.totalCountLabel.rx.text)
             .disposed(by: disposeBag)
