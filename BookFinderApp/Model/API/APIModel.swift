@@ -12,6 +12,10 @@ struct SearchQuery {
     var target : String
 }
 
+struct MaxResults {
+    static let maxResult : Int = 20
+}
+
 struct APIModel {
     //https://www.googleapis.com/books/v1/volumes?q=
     static let scheme = "https"
@@ -28,7 +32,7 @@ struct APIModel {
         components.queryItems = [
             URLQueryItem(name: "q", value: "\(queryTarget)\(query.query)"),
             URLQueryItem(name: "projection", value: "lite"),
-            URLQueryItem(name: "maxResults", value: "20")
+            URLQueryItem(name: "maxResults", value: "\(MaxResults.maxResult)")
         ]
         return components
     }
