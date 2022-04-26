@@ -14,6 +14,7 @@ class BookTableViewHeaderView : UITableViewHeaderFooterView {
     
     let totalCountLabel = UILabel()
     let bottomBorder = UIView()
+    let searchTargetSegment = UISegmentedControl(items: ["책","작가"])
     
     let disposeBag = DisposeBag()
     
@@ -33,10 +34,14 @@ class BookTableViewHeaderView : UITableViewHeaderFooterView {
         totalCountLabel.font = .systemFont(ofSize: 10, weight: .medium)
         totalCountLabel.text = LabelText.headerTotalBooksLabel
         bottomBorder.backgroundColor = .systemGray3
+        
+        searchTargetSegment.selectedSegmentIndex = 0
+        searchTargetSegment.selectedSegmentTintColor = .white
+        searchTargetSegment.backgroundColor = UIColor.systemGray3
     }
     
     private func setLayout() {
-        [totalCountLabel, bottomBorder].forEach {addSubview($0)}
+        [totalCountLabel, bottomBorder, searchTargetSegment].forEach {addSubview($0)}
         
         totalCountLabel.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -48,5 +53,19 @@ class BookTableViewHeaderView : UITableViewHeaderFooterView {
             $0.leading.trailing.bottom.equalToSuperview()
             $0.height.equalTo(0.5)
         }
+        
+        searchTargetSegment.snp.makeConstraints {
+            $0.centerY.equalTo(totalCountLabel)
+            $0.trailing.equalToSuperview().inset(12)
+            $0.height.equalToSuperview().multipliedBy(0.7)
+        }
+    }
+    
+    func bind(_ viewModel : BookTableHeaderViewModel) {
+
+        self.searchTargetSegment.rx.selectedSegmentIndex
+            .bind(to: viewModel.segmentIndex)
+            .disposed(by: disposeBag)
+        
     }
 }
