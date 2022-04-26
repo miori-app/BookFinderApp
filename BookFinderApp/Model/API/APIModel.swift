@@ -7,22 +7,30 @@
 
 import Foundation
 
+struct SearchQuery {
+    var query : String
+    var target : String
+}
+
 struct APIModel {
     //https://www.googleapis.com/books/v1/volumes?q=
     static let scheme = "https"
     static let host = "www.googleapis.com"
     static let path = "/books/v1/volumes"
     
-    func searchBooks(query: String) -> URLComponents {
+    func searchBooks(query: SearchQuery) -> URLComponents {
+        var queryTarget : String = "0"
+        queryTarget = query.target == "0" ? "+intitle:" : "+inauthor:"
         var components = URLComponents()
         components.scheme = APIModel.scheme
         components.host = APIModel.host
         components.path = APIModel.path
         components.queryItems = [
-            URLQueryItem(name: "q", value: "+intitle:\(query)"),
+            URLQueryItem(name: "q", value: "\(queryTarget)\(query.query)"),
             URLQueryItem(name: "projection", value: "lite"),
             URLQueryItem(name: "maxResults", value: "20")
         ]
         return components
     }
 }
+
