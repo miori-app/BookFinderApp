@@ -19,7 +19,7 @@ class FindBookNetwork {
     // MARK: - 통신을 하고 파싱까지 하는 함수 구현
     // Network 는 주로 성공/ 실패 -> single
 
-    func searchNetwork(query : String) -> Single<Result<GoogleBooksResponseModel, NetworkErrorModel>> {
+    func searchNetwork(query : SearchQuery) -> Single<Result<GoogleBooksResponseModel, NetworkErrorModel>> {
         
         guard let url = api.searchBooks(query: query).url else {
             return .just(.failure(.badURL))
