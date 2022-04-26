@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D464BD32817E84D005E52DD /* BookTableHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D464BD22817E84D005E52DD /* BookTableHeaderViewModel.swift */; };
 		3D6F7EE4281082C4009108A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F7EE3281082C4009108A0 /* AppDelegate.swift */; };
 		3D6F7EE6281082C4009108A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F7EE5281082C4009108A0 /* SceneDelegate.swift */; };
 		3D6F7EE8281082C4009108A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F7EE7281082C4009108A0 /* ViewController.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D464BD22817E84D005E52DD /* BookTableHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableHeaderViewModel.swift; sourceTree = "<group>"; };
 		3D6F7EE0281082C4009108A0 /* BookFinderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookFinderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D6F7EE3281082C4009108A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D6F7EE5281082C4009108A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				3D6F7F392811A56C009108A0 /* SearchBarViewModel.swift */,
 				3D6F7F3B2811B1ED009108A0 /* MainViewModel.swift */,
 				3D6F7F4528129613009108A0 /* BookTableViewModel.swift */,
+				3D464BD22817E84D005E52DD /* BookTableHeaderViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 			files = (
 				3D6F7F4628129613009108A0 /* BookTableViewModel.swift in Sources */,
 				3D6F7EE8281082C4009108A0 /* ViewController.swift in Sources */,
+				3D464BD32817E84D005E52DD /* BookTableHeaderViewModel.swift in Sources */,
 				3D6F7F292810989B009108A0 /* BookTableView.swift in Sources */,
 				3D6F7F17281085E0009108A0 /* BookListViewController.swift in Sources */,
 				3D6F7F4428129215009108A0 /* Constant.swift in Sources */,
