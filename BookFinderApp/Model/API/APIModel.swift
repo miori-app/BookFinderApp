@@ -9,7 +9,8 @@ import Foundation
 
 struct SearchQuery {
     var query : String
-    var target : String
+    var target : Int
+    var startIndex : Int
 }
 
 struct MaxResults {
@@ -23,8 +24,8 @@ struct APIModel {
     static let path = "/books/v1/volumes"
     
     func searchBooks(query: SearchQuery) -> URLComponents {
-        var queryTarget : String = "0"
-        queryTarget = query.target == "0" ? "+intitle:" : "+inauthor:"
+        var queryTarget : String = ""
+        queryTarget = query.target == 0 ? "+intitle:" : "+inauthor:"
         var components = URLComponents()
         components.scheme = APIModel.scheme
         components.host = APIModel.host
@@ -32,9 +33,9 @@ struct APIModel {
         components.queryItems = [
             URLQueryItem(name: "q", value: "\(queryTarget)\(query.query)"),
             URLQueryItem(name: "projection", value: "lite"),
-            URLQueryItem(name: "maxResults", value: "\(MaxResults.maxResult)")
+            URLQueryItem(name: "maxResults", value: "\(MaxResults.maxResult)"),
+            URLQueryItem(name: "startIndex", value: "\(query.startIndex)")
         ]
         return components
     }
 }
-

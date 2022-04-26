@@ -26,8 +26,8 @@ struct MainModel {
     /*
      - 네트워크 통신시, 파라미터로 넣기 위함
      */
-    func convertSearchQuery(_ query : String, _ target : String) -> SearchQuery {
-        return SearchQuery(query: query, target: target)
+    func convertSearchQuery(_ query : String, _ target : Int, _ startIndex : Int) -> SearchQuery {
+        return SearchQuery(query: query, target: target, startIndex: startIndex)
     }
 }
 

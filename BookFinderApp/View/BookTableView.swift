@@ -65,8 +65,8 @@ class BookTableView : UITableView {
             .scan(0) { (pre,new) in
                 pre + MaxResults.maxResult
             }
-            .subscribe {print("\($0)")} //ok
-            //.bind(to: viewModel.fetchStratIndex)
+            //.subscribe {print("\($0)")} //ok
+            .bind(to: viewModel.fetchStratIndex)
             .disposed(by: disposeBag)
     }
 }

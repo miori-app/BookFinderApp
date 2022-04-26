@@ -21,11 +21,14 @@ struct MainViewModel {
     // #16 이슈 해결하기 위해 새로 추가
     var cellData: Observable<[BooksItems]>
     
+    let fetchData : Observable<[BooksItems]>
+    
     init(_ model : MainModel = MainModel()) {
         
-        // 검색어와, 검색타겟(책/작가) 를 받아, convertSearchQuery 를 통해 SearchQuery 형태로
+        // 검색어와, 검색타겟(책/작가)  + startIndex 값을 받아, convertSearchQuery 를 통해 SearchQuery 형태로
         let searchQueryStruct = Observable
-            .combineLatest(searchBarViewModel.shouldLoadResult, bookTableHeaderViewModel.selectedIndex.map{"\($0)"}, resultSelector: model.convertSearchQuery)
+            .combineLatest(searchBarViewModel.shouldLoadResult, bookTableHeaderViewModel.selectedIndex, bookTableViewModel.fetchStratIndex, resultSelector: model.convertSearchQuery)
+        
         
         let searchBookResult = searchQueryStruct
             .flatMapLatest(model.searchBooks)
@@ -35,7 +38,7 @@ struct MainViewModel {
             .compactMap(model.getBooksModelValue)
         
          // # 16 이슈 해결 하기 위해 변경 (let cellData -> 외부에서 var cellData  접근할수 있게)
-         cellData = searchBookValue
+         fetchData = searchBookValue
             .map { $0.items }
         
 //        # 16 이슈 해결 하기 위해 변경 (삭제)
@@ -43,6 +46,13 @@ struct MainViewModel {
 //            .debug()
 //            .bind(to: bookTableViewModel.apiData)
 //            .disposed(by: disposeBag)
+        
+        cellData = fetchData
+            .scan([]) { $0 + $1 }
+        
+        cellData
+            .bind(to : bookTableViewModel.apiData)
+            .disposed(by: disposeBag)
         
         let totalResultCount = searchBookValue
             .map { "\(LabelText.headerTotalBooksLabel) \($0.totalItems)" }
