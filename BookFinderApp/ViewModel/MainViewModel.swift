@@ -14,6 +14,7 @@ struct MainViewModel {
     
     let searchBarViewModel = SearchBarViewModel()
     let bookTableViewModel = BookTableViewModel()
+    let bookTableHeaderViewModel = BookTableHeaderViewModel()
     
     let totalResultCountValue : Driver<String>
     
@@ -22,7 +23,11 @@ struct MainViewModel {
     
     init(_ model : MainModel = MainModel()) {
         
-        let searchBookResult = searchBarViewModel.shouldLoadResult
+        // 검색어와, 검색타겟(책/작가) 를 받아, convertSearchQuery 를 통해 SearchQuery 형태로
+        let searchQueryStruct = Observable
+            .combineLatest(searchBarViewModel.shouldLoadResult, bookTableHeaderViewModel.selectedIndex.map{"\($0)"}, resultSelector: model.convertSearchQuery)
+        
+        let searchBookResult = searchQueryStruct
             .flatMapLatest(model.searchBooks)
             .share()
         
