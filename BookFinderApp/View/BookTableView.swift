@@ -61,7 +61,7 @@ class BookTableView : UITableView {
                 let nowScrollViewHeight = self.frame.size.height
                 
                 // 바닥에 닿기 전 + 아래방향으로 스크롤일떄만
-                if (offsetY > (totalScrollViewHeight - nowScrollViewHeight - ScreenConstant.estimateCellSize * 2)) && self.lastPostion < offsetY {
+                if (offsetY > (totalScrollViewHeight - nowScrollViewHeight - ScreenConstant.estimateCellSize * 3)) && self.lastPostion < offsetY {
                     viewModel.fetchMoreDatas
                         .onNext(())
                 }
