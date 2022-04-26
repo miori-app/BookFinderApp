@@ -14,6 +14,7 @@ class BookTableView : UITableView {
     
     let disposeBag = DisposeBag()
     let headerView = BookTableViewHeaderView(frame: CGRect(origin: .zero, size: CGSize(width: ScreenConstant.deviceWidth, height: 30)))
+    let headerViewModel = BookTableHeaderViewModel()
     var lastPostion : CGFloat = 0.0
     
     override init(frame: CGRect, style: UITableView.Style) {
@@ -37,6 +38,8 @@ class BookTableView : UITableView {
     }
     
     func bind(_ viewModel : BookTableViewModel) {
+        
+        headerView.bind(headerViewModel)
         
         self.rx.itemSelected
             .bind { [weak self] indexPath in
