@@ -74,8 +74,8 @@ struct MainViewModel {
             .filter { $0 == 0 }
             .map { _ -> BookListViewController.Alert in
                 return (
-                    title : "🥹 검색결과가 없어요",
-                    message : "책 이름이나 작가 이름이 정확한지 확인해주세요",
+                    title : EmptyReusltErr.title,
+                    message : EmptyReusltErr.msg,
                     actions : [.confirm],
                     style : .alert
                 )
