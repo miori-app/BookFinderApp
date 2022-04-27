@@ -27,3 +27,8 @@ struct HttpMethods {
     static let get = "GET"
     static let post = "POST"
 }
+
+struct EmptyReusltErr {
+    static let title : String = "🥹 검색결과가 없어요"
+    static let msg : String = "책 이름이나 작가 이름이 정확한지 확인해주세요"
+}

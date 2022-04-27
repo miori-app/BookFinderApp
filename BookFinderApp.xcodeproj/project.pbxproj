@@ -120,20 +120,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3D464BDA2818F1F8005E52DD /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				3D464BDB2818F20E005E52DD /* AlertActioinProtocol.swift */,
-			);
-			name = Protocol;
-			sourceTree = "<group>";
-		};
-		3D464BDD2818F29A005E52DD /* Extension */ = {
+		3D464BE12818F904005E52DD /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				3D464BDE2818F2AD005E52DD /* UIViewController.swift */,
 			);
-			name = Extension;
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		3D464BE22818F916005E52DD /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				3D464BDB2818F20E005E52DD /* AlertActioinProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		3D6F7ED7281082C4009108A0 = {
@@ -254,8 +254,8 @@
 		3D6F7F4228129202009108A0 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				3D464BDD2818F29A005E52DD /* Extension */,
-				3D464BDA2818F1F8005E52DD /* Protocol */,
+				3D464BE22818F916005E52DD /* Protocol */,
+				3D464BE12818F904005E52DD /* Extension */,
 				3D6F7F4328129215009108A0 /* Constant.swift */,
 			);
 			path = Configuration;
