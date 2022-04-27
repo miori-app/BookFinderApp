@@ -53,6 +53,7 @@ class BookTableView : UITableView {
             }
             .disposed(by: disposeBag)
         
+        //MARK: 무한 스크롤 
         self.rx.didScroll
             .throttle(.seconds(3), latest: false, scheduler: MainScheduler.instance)
         //.debug()
