@@ -26,6 +26,7 @@ class SearchBar : UISearchController {
 
     private func setSearchBar() {
         self.searchBar.placeholder = LabelText.searchBarPlaceholder
+        self.obscuresBackgroundDuringPresentation = false
     }
 
     func bind(_ viewModel : SearchBarViewModel) {
