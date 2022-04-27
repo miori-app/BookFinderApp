@@ -35,6 +35,7 @@ class BookTableView : UITableView {
         self.estimatedRowHeight = ScreenConstant.deviceHeight * 0.12
         self.separatorStyle = .singleLine
         self.tableHeaderView = headerView
+        self.tableFooterView = UIView()
     }
     
     func bind(_ viewModel : BookTableViewModel) {
