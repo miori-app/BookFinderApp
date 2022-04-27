@@ -19,7 +19,7 @@ struct DefaultImgWantedLogo {
 
 struct LabelText {
     static let naviTitle : String = "책을 Wanted"
-    static let searchBarPlaceholder : String = "검색할 책 이름을 적어주세요"
+    static let searchBarPlaceholder : String = "Search.. (책/작가 구분을 할 수 있어요)"
     static let headerTotalBooksLabel : String =  "📚 검색된 결과 수 :"
 }
 
