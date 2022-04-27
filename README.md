@@ -30,8 +30,12 @@
 
 ### 개발 문서화
 - [API Response](https://miori.atlassian.net/l/c/5AMx7qwH)
+- [프로젝트 진행방식/결과/회고](https://miori.atlassian.net/l/c/40zS1Z21)
 
 
 ---
 ## 🖇 사용한 API
 - [Google Books API](https://developers.google.com/books/docs/overview)
+
+## Reference
+- 원티드사이트의 로고 이미지를 html 코드를 통해 복사하였습니다.
