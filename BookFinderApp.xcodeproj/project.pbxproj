@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3D464BD32817E84D005E52DD /* BookTableHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D464BD22817E84D005E52DD /* BookTableHeaderViewModel.swift */; };
+		3D464BDC2818F20E005E52DD /* AlertActioinProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D464BDB2818F20E005E52DD /* AlertActioinProtocol.swift */; };
+		3D464BDF2818F2AD005E52DD /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D464BDE2818F2AD005E52DD /* UIViewController.swift */; };
 		3D6F7EE4281082C4009108A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F7EE3281082C4009108A0 /* AppDelegate.swift */; };
 		3D6F7EE6281082C4009108A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F7EE5281082C4009108A0 /* SceneDelegate.swift */; };
 		3D6F7EE8281082C4009108A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F7EE7281082C4009108A0 /* ViewController.swift */; };
@@ -57,6 +59,8 @@
 
 /* Begin PBXFileReference section */
 		3D464BD22817E84D005E52DD /* BookTableHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableHeaderViewModel.swift; sourceTree = "<group>"; };
+		3D464BDB2818F20E005E52DD /* AlertActioinProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertActioinProtocol.swift; sourceTree = "<group>"; };
+		3D464BDE2818F2AD005E52DD /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		3D6F7EE0281082C4009108A0 /* BookFinderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookFinderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D6F7EE3281082C4009108A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D6F7EE5281082C4009108A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +120,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D464BDA2818F1F8005E52DD /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				3D464BDB2818F20E005E52DD /* AlertActioinProtocol.swift */,
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
+		3D464BDD2818F29A005E52DD /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3D464BDE2818F2AD005E52DD /* UIViewController.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
 		3D6F7ED7281082C4009108A0 = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +254,8 @@
 		3D6F7F4228129202009108A0 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				3D464BDD2818F29A005E52DD /* Extension */,
+				3D464BDA2818F1F8005E52DD /* Protocol */,
 				3D6F7F4328129215009108A0 /* Constant.swift */,
 			);
 			path = Configuration;
@@ -464,6 +486,8 @@
 				3D6F7EE4281082C4009108A0 /* AppDelegate.swift in Sources */,
 				3D6F7EE6281082C4009108A0 /* SceneDelegate.swift in Sources */,
 				3D6F7F362811A437009108A0 /* FindBookNetwork.swift in Sources */,
+				3D464BDF2818F2AD005E52DD /* UIViewController.swift in Sources */,
+				3D464BDC2818F20E005E52DD /* AlertActioinProtocol.swift in Sources */,
 				3D6F7F3A2811A56C009108A0 /* SearchBarViewModel.swift in Sources */,
 				3DC7BF282815C30100F18724 /* MainModel.swift in Sources */,
 				3D6F7F4128129031009108A0 /* BookTableViewHeaderView.swift in Sources */,

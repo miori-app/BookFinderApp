@@ -9,7 +9,7 @@ import Foundation
 
 struct GoogleBooksResponseModel : Decodable {
     var totalItems : Int
-    var items : [BooksItems]
+    var items : [BooksItems]?
 }
 
 struct BooksItems : Decodable {

@@ -58,5 +58,14 @@ extension BookListViewController {
             .bind(to: viewModel.bookTableViewModel.apiData)
             .disposed(by: disposeBag)
         
+        //alert 띄우기
+        viewModel.shouldPresentAlert
+            .flatMapLatest { alert -> Signal<AlertAction> in
+                let alertController = UIAlertController(title: alert.title, message: alert.message, preferredStyle: alert.style)
+                return self.presentAlertController(alertController, actions: alert.actions)
+            }
+            .emit(to: viewModel.alertActionTapped)
+            .disposed(by: disposeBag)
+        
     }
 }

@@ -23,6 +23,10 @@ struct MainViewModel {
     
     let fetchData : Observable<[BooksItems]>
     
+    // alert action 탭 했을때 이벤트 확인하기위함
+    let alertActionTapped = PublishRelay<BookListViewController.AlertAction>()
+    let shouldPresentAlert : Signal<BookListViewController.Alert>
+    
     init(_ model : MainModel = MainModel()) {
         
         // 검색어와, 검색타겟(책/작가)  + startIndex 값을 받아, convertSearchQuery 를 통해 SearchQuery 형태로
@@ -37,9 +41,12 @@ struct MainViewModel {
         let searchBookValue = searchBookResult
             .compactMap(model.getBooksModelValue)
         
+        let searchBookError = searchBookResult
+            .compactMap(model.getBooksModelError)
+        
          // # 16 이슈 해결 하기 위해 변경 (let cellData -> 외부에서 var cellData  접근할수 있게)
          fetchData = searchBookValue
-            .map { $0.items }
+            .map { $0.items ?? [] }
         
 //        # 16 이슈 해결 하기 위해 변경 (삭제)
 //        cellData
@@ -59,6 +66,35 @@ struct MainViewModel {
 
         self.totalResultCountValue = totalResultCount
             .asDriver(onErrorJustReturn: "\(LabelText.headerTotalBooksLabel) 0")
+        
+        
+        //MARK: 검색결과가 없을 때
+        let emptyAlertMsg = searchBookValue
+            .map { $0.totalItems }
+            .filter { $0 == 0 }
+            .map { _ -> BookListViewController.Alert in
+                return (
+                    title : "🥹 검색결과가 없어요",
+                    message : "책 이름이나 작가 이름이 정확한지 확인해주세요",
+                    actions : [.confirm],
+                    style : .alert
+                )
+            }
+        
+        let errAlertMsg = searchBookError
+            .map { msg -> BookListViewController.Alert in
+                return (
+                    title : "⚠️",
+                    message : "\(msg)",
+                    actions : [.confirm],
+                    style : .alert
+                )
+            }
+        
+        
+        self.shouldPresentAlert = Observable
+            .merge(emptyAlertMsg , errAlertMsg)
+            .asSignal(onErrorSignalWith: .empty())
     }
 
 }
