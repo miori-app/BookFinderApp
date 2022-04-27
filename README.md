@@ -4,6 +4,7 @@
 ## 📚 구현 기능
 - 책 혹은 작가 검색을 통해, 원하는 책의 정보를 얻을 수 있다
 - 검색 결과를 무한 스크롤 하여, 계속 볼 수 있다
+- [실행영상 유투브](https://youtu.be/YZweuStMRSc)
 
 ## 📱구현 환경
 - Deployment Target iOS 13.0
