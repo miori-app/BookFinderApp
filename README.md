@@ -8,6 +8,11 @@
 
 ## 📱구현 환경
 - Deployment Target iOS 13.0
+
+iOS 13|iOS 14|iOS 15
+---|---|---
+작동확인|작동확인|작동확인
+
 - darkMode 미지원
 - Device Orientation : Portrait
 
