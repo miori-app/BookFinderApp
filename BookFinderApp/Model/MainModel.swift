@@ -22,6 +22,13 @@ struct MainModel {
         return value
     }
     
+    func getBooksModelError(_ searchResult : Result<GoogleBooksResponseModel, NetworkErrorModel>)  -> String? {
+        guard case .failure(let error) = searchResult else {
+            return nil
+        }
+        return error.message
+    }
+    
     //MARK: 검색어와, (책제목/작가) 를 각각 받아 SearchQuery 형태로 반환
     /*
      - 네트워크 통신시, 파라미터로 넣기 위함
