@@ -30,7 +30,7 @@
 
 ### 개발 문서화
 - [API Response](https://miori.atlassian.net/l/c/5AMx7qwH)
-- [프로젝트 진행방식/결과/회고](https://miori.atlassian.net/l/c/40zS1Z21)
+- [프로젝트 진행방식/결과/회고](hhttps://miori.atlassian.net/l/c/T9dc4WnW)
 
 
 ---
