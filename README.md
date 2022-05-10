@@ -43,4 +43,4 @@ iOS 13|iOS 14|iOS 15
 - [Google Books API](https://developers.google.com/books/docs/overview)
 
 ## Reference
-- 원티드사이트의 로고 이미지를 html 코드를 통해 복사하였습니다.
+- 해당 프로젝트는 원티드랩의 과제 프로젝트의 일부입니다
