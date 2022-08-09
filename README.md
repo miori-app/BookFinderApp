@@ -1,5 +1,5 @@
 # BookFinderApp
-Google BookAPI 를 활용해서, 책/ 작가 검색을 할 수 있는 
+Google BookAPI 를 활용해서, 책/ 작가 검색을 할 수 있는 앱
 
 ## 📚 구현 기능
 - 책 혹은 작가 검색을 통해, 원하는 책의 정보를 얻을 수 있다
